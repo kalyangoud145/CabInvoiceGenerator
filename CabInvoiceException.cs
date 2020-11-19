@@ -19,7 +19,7 @@ namespace CabInvoiceGenerator
             NULL_RIDES,
             INVALID_USER_ID
         }
-        ExceptionType type;
+        public ExceptionType type;
         /// <summary>
         /// Constructor for overriding the message with the exception type
         /// </summary>
