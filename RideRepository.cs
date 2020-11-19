@@ -32,10 +32,26 @@ namespace CabInvoiceGenerator
                 // With userid as key
                 if (!rideList)
                 {
-                    List<Ride> list = new List<Ride>();
+                    foreach (Ride ride in rides)
+                    {
+                        try
+                        {
+                            if (ride == null)
+                            {
+                                throw new CabInvoiceException(CabInvoiceException.ExceptionType.INVALID_RIDE_TYPE, "Invalid ride type");
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            throw new CabInvoiceException(CabInvoiceException.ExceptionType.INVALID_RIDE_TYPE, "Invalid ride type");
+                        }
+
+                    }
                     // list for adding the different rides
+                    List<Ride> list = new List<Ride>();                    
                     list.AddRange(rides);
                     this.userRides.Add(userId, list);
+
                 }
             }
             catch (CabInvoiceException)
